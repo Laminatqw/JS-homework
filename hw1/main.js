@@ -19,7 +19,7 @@
 let firstname = 'Victor';
 let lastname = 'Hzhondzel';
 let middlename = 'Rostislavovich'
-let person = `${firstname} ${middlename} ${lastname}`;
+let person = firstname+ ' ' + middlename + ' ' + lastname;
 console.log(person);
 //Pt3----------------------------------------------------------------
 let a = 100;
