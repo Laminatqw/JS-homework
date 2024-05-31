@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session History</title>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            let pgSession = JSON.parse(localStorage.getItem('sessions')) || [];
+            let sessionsContainer = document.createElement('div');
+            pgSession.forEach(session => {
+                let sesDiv = document.createElement('div');
+                let sesDate = new Date(session);
+                let day = sesDate.getDate();
+                let month = sesDate.getMonth() + 1;
+                let year = sesDate.getFullYear();
+                let hour = sesDate.getHours();
+                let minutes = sesDate.getMinutes();
+                let seconds = sesDate.getSeconds();
+                console.log(day, month, year, hour, minutes, seconds)
+                console.log(session)
+                let formDate = `Date: ${day}/${month}/${year}`;
+                let formTime = `Time: ${hour}:${minutes}:${seconds}`;
+
+                let dateElement = document.createElement('p');
+                dateElement.innerText = formDate;
+
+                let timeElement = document.createElement('p');
+                timeElement.innerText = formTime;
+
+                sesDiv.appendChild(dateElement);
+                sesDiv.appendChild(timeElement);
+
+                sessionsContainer.appendChild(sesDiv);
+            });
+            document.body.appendChild(sessionsContainer);
+        });
+
+    </script>
+</head>
+<body>
+</body>
+</html>
